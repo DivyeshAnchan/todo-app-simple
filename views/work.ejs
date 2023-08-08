@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <img src="./house-solid.svg" id="size" alt="" /><a href="/">Home</a>
+        </li>
+        <li>
+          <img src="./briefcase-solid.svg" id="size" alt="" /><a href="/work"
+            >work</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <h1><span id="currentDate"></span></h1>
+    <div class="container">
+      <form id="todoForm" action="/work" method="POST">
+        <input
+          type="text"
+          name="task"
+          placeholder="Enter your task"
+          id="taskInput"
+          required
+        />
+        <button type="submit">Add Task</button>
+      </form>
+      <ul class="new">
+        <% worktasks.forEach((task, index) => { %>
+        <li>
+          <input
+            type="checkbox"
+            id="taskCheck_<%= index %>"
+            class="task-checkbox"
+          />
+          <label for="taskCheck_<%= index %>">
+            <input
+              type="text"
+              value="<%= task %>"
+              class="task-textbox"
+              disabled
+            />
+          </label>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
